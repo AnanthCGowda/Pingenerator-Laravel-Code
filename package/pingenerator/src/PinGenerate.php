@@ -4,7 +4,7 @@ namespace Ananth\Pingenerator;
 
 class PinGenerate
 {
-   protected $used_pins = [];
+    protected $used_pins = [];
 
     public function generator()
     {
@@ -47,10 +47,18 @@ class PinGenerate
         }
 
         // Checking for Repitative patterns
+       
+        for ($i = 0; $i < strlen($pin); $i++) {
 
-        if (preg_match('/(\d)\1{3}/', $pin)) {
-            
-            return false;
+            for ($j = $i + 1; $j < strlen($pin); $j++) {
+
+                if ($pin[$i] == $pin[$j]) {
+
+                    return false;
+
+                    break 2;
+                }
+            }
         }
 
         //Checking for the sequential patterns 

@@ -22,7 +22,9 @@
 	<div class="container">
 		<div class="card text-center">
 			<div class="card-header">
-				<h1><span>{{ $pin ?? ' Not generated' }}</span></h1>
+				
+				<h1><span id="result">0000</span></h1>
+				
 			</div>
 		</div>
 		<br>
@@ -33,11 +35,39 @@
 	  		<div class="card-body">
 	    		<p class="card-text">Click the button to generate the pin to open the door</p>
 	    		<div class="text-center">
-	    			<a href="{{ route('pingen.generate') }}" class="btn btn-primary text">Generate Pin</a>	
+	    			<a class="btn btn-primary pingen">Generate Pin</a>	
 	    		</div>
 	    	</div>
 		</div>	
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+	
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+    		$('.pingen').click(function() 
+    		{
+        		$.ajax({
+            		type: 'POST',
+            		url: '/pingenerator',
+            		dataType: 'json',
+            		success: function(response) {
+                		if (response.success) {
+                			
+                    		$('#result').text(response.data);
+                    		
+                		} else {
+                    		$('#result').text("Something went wrong");
+                		}
+            		},
+            		error: function(error) {
+                		console.error(error);
+            		}
+        		});
+    		});
+		});
 
+	</script>
 </body>
 </html>

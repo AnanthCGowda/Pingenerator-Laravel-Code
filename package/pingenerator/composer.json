@@ -7,6 +7,13 @@
             "Ananth\\Pingenerator\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ananth\\Pingenerator\\PingeneratorServiceProvider"
+            ]
+        }
+    },
     "authors": [
         {
             "name": "AnanthCGowda",

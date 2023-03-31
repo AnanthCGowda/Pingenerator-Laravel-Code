@@ -2,9 +2,9 @@
 
 Route::group(['namespace'=>'Ananth\Pingenerator\Controllers'],function(){
 
-	/*Route::get('/pingenerator',['uses'=>'PingeneratorController@index'])->name('pingen.index');*/
+	Route::get('/pingenerator',['uses'=>'PingeneratorController@index'])->name('pingen.index');
 
-	Route::get('/pingenrator',['uses'=>'PingeneratorController@generator'])->name('pingen.generate');
+	Route::post('/pingenerator',['uses'=>'PingeneratorController@generator'])->name('pingen.generate');
 
 });
 

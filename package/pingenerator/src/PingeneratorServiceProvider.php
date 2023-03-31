@@ -18,10 +18,6 @@
 
 		}
 
-		public function register()
-		{
-
-		}
 	}
 
 ?>
